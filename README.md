@@ -49,3 +49,18 @@ Stars and forks are descriptive metadata, not evidence of safety or reliability.
 A new **Research Learning Studio** navigation tab provides a guided four-stage learning workflow: choose an open-source repository, select a corporate use case, manually complete a verification checklist, record findings, and download a Markdown research evaluation report. The report is generated locally in the browser and contains only user-entered research notes and clearly labelled illustrative use-case content. No external AI API is called for report generation.
 
 The checklist percentage is a self-reported completion measure, not a repository trust score. A checked license item does not constitute legal advice or a license compliance audit.
+
+
+## v1.3 NotebookLM Hub
+
+A new **NotebookLM Hub** tab turns AgentLens research into sources for [NotebookLM](https://notebooklm.google.com/).
+
+- **Resource catalogue:** 52 curated open-source agents, frameworks, tools and learning repositories across 10 categories (`app/data/resources.ts`), with search and category/level filters.
+- **Notebook kits:** nine themed bundles (agent frameworks, RAG, coding agents, no-code automation, local AI, voice, MCP, motion, beginner courses), each sized for one notebook.
+- **Website sources:** copy repository, documentation or raw README URLs to paste into NotebookLM's *Add source → Website*.
+- **Source brief (.md):** an index document with summaries, links, evaluation criteria and research questions, generated in the browser.
+- **README pack (.md):** `/api/notebooklm/readme-pack?ids=...` fetches the current README of each selected repository from GitHub (catalogue entries only, max 25, cached for a day) and combines them into one upload.
+- **Prompt pack:** seven grounded prompts (briefing, comparison, pilot choice, explainer, Audio Overview focus, study guide, gaps) filled in with the notebook's title, goal and resources.
+- **Catalogue API:** `/api/resources` (JSON) and `/api/resources?format=csv`.
+
+Selections are kept in this browser only. No API keys or database are needed; Supabase is not required for this release.
